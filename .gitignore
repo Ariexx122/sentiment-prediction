@@ -1,3 +1,23 @@
+# Data and Large Binaries
+*.npy
+*.tsv
+*.csv
+*.pkl
+*.h5
+
+# Jupyter Notebook internals
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python internals
+__pycache__/
+*.py[cod]
+
+# Environments
+venv/
+env/
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
