@@ -4,6 +4,7 @@
 *.csv
 *.pkl
 *.h5
+*.pkl
 
 # Jupyter Notebook internals
 .ipynb_checkpoints/
