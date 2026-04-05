@@ -35,9 +35,10 @@ def predict_sentiment(request: ReviewRequest):
     cleaned = clean_text(request.review)
     tfidf = tfidf_vectorizer.transform([cleaned])
     prediction = logreg_model.predict(tfidf)
-    probability = logreg_model.predict_proba(tfidf)[0][1]
+    probability = logreg_model.predict_proba(tfidf)[0]
 
     return {
         "sentiment": "positive" if prediction[0] == 1 else "negative",
-        "probability": round(float(probability), 3)
+        "positive_prob": round(float(probability[1]), 3),
+        "negative_prob": round(float(probability[0]), 3)
     }
