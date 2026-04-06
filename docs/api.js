@@ -5,11 +5,13 @@ const input = document.getElementById("reviewInput");
 const btn = document.getElementById("analyzeBtn");
 const charCount = document.getElementById("charCount");
 
-input.addEventListener("input", () => {
-  const len = input.value.length;
-  charCount.textContent = len;
-  btn.disabled = len < 10;
-});
+["input", "paste"].forEach((evt) =>
+  input.addEventListener(evt, () => {
+    const len = input.value.length;
+    charCount.textContent = len;
+    btn.disabled = len < 10;
+  }),
+);
 
 async function analyze() {
   const review = input.value.trim();
