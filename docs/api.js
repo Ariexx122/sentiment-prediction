@@ -7,9 +7,11 @@ const charCount = document.getElementById("charCount");
 
 ["input", "paste"].forEach((evt) =>
   input.addEventListener(evt, () => {
-    const len = input.value.length;
-    charCount.textContent = len;
-    btn.disabled = len < 10;
+    setTimeout(() => {
+      const len = input.value.length;
+      charCount.textContent = len;
+      btn.disabled = len < 10;
+    }, 0);
   }),
 );
 
