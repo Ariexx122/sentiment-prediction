@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineRead — Sentiment Analyzer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <header>
+        <p class="header-eyebrow">
+          ML Sentiment Analysis · BERT + TF-IDF · Logistic Regression
+        </p>
+        <h1>Cine<em>Read</em></h1>
+        <p class="header-sub">Paste a movie review. Get a sentiment verdict.</p>
+      </header>
+
+      <main>
+        <p class="section-label">Review Input</p>
+        <textarea
+          id="reviewInput"
+          placeholder="Type or paste a movie review here..."
+        ></textarea>
+        <p class="char-count"><span id="charCount">0</span> characters</p>
+
+        <button id="analyzeBtn" onclick="analyze()" disabled>
+          <span>Analyze Sentiment</span>
+        </button>
+
+        <div class="loading" id="loading">
+          <div class="dots"><span></span><span></span><span></span></div>
+          Analyzing review
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="result" id="result">
+          <div class="result-header">
+            <div>
+              <p class="section-label">Verdict</p>
+              <p class="verdict" id="verdictText"></p>
+            </div>
+            <div class="verdict-icon" id="verdictIcon"></div>
+          </div>
+          <div class="result-body">
+            <div class="bars">
+              <div class="bar-row">
+                <div class="bar-label">
+                  <span style="color: var(--pos)">Positive</span>
+                  <span
+                    class="pct"
+                    id="posLabel"
+                    style="color: var(--pos)"
+                  ></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill pos" id="posBar"></div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  <span style="color: var(--neg)">Negative</span>
+                  <span
+                    class="pct"
+                    id="negLabel"
+                    style="color: var(--neg)"
+                  ></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill neg" id="negBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-footer" id="resultFooter"></div>
+        </div>
+      </main>
+
+      <footer>
+        <span>CineRead · Ariel Hernandez</span>
+        <a
+          href="https://github.com/Ariexx122/sentiment-prediction"
+          target="_blank"
+          >GitHub →</a
+        >
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
